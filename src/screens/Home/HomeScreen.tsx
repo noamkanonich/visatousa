@@ -3,7 +3,7 @@ import styled from "styled-components";
 import TabButton from "../../components/tab-button/TabButton";
 import { Spacing } from "../../theme/layout";
 import Spacer from "../../components/spacer/Spacer";
-import { HeadingXL, HeadingXXL, TextM } from "../../theme/typography";
+import { HeadingXL, HeadingXXL, TextM, TextS } from "../../theme/typography";
 import {
   Gray1,
   Gray2,
@@ -18,6 +18,7 @@ import Card from "../../components/card/Card";
 import ImgSrc from "../../assets/images/new-york.jpg";
 import ThumbsUpUrl from "../../assets/icons/like.png";
 import { CSSTransition } from "react-transition-group";
+import { useTranslation } from "react-i18next";
 
 const appearDuration = 2000;
 const transitionName = `box`;
@@ -25,31 +26,31 @@ const transitionName = `box`;
 const HomeScreen = () => {
   const [fading, setFading] = useState(false);
   setInterval(() => setFading(!fading), 1000);
-
+  const { t } = useTranslation();
   return (
     <Root>
       <Spacer direction="vertical" size="xs" />
       {/* <BackgroundImage> */}
       <Spacer direction="vertical" size="xl" />
       <Section>
-        <MainTitle>ויזה לארצות הברית פשוט, קל ומהיר</MainTitle>
+        {/* <MainTitle>ויזה לארצות הברית פשוט, קל ומהיר</MainTitle> */}
+        <MainTitle>{t("home.title")}</MainTitle>
         <Spacer direction="vertical" size="xl" />
         <Divider />
         <Spacer direction="vertical" size="xl" />
         <SubTitle>התחילו עכשיו את תהליך הוצאת הויזה לארה"ב</SubTitle>
         <Spacer direction="vertical" size="xl" />
         <SendEmailContainer>
-          <InputContainer>
-            <Input placeholder="Your Email" />
-          </InputContainer>
-
-          <Spacer direction="horizontal" size="l" />
           <Button
-            label="send"
+            label="שליחה"
             color={Light}
             background={Primary}
             onClick={() => null}
           />
+          <Spacer direction="horizontal" size="l" />
+          <InputContainer>
+            <Input placeholder="כתובת אימייל" />
+          </InputContainer>
         </SendEmailContainer>
       </Section>
       {/* </BackgroundImage> */}
@@ -168,8 +169,9 @@ const InputContainer = styled.div`
 `;
 
 const Input = styled.input.attrs({ type: "text" })`
+  ${TextS};
   width: 240px;
-  color: red;
+  color: ${Primary};
   margin-bottom: 0;
   text-transform: uppercase;
   border-radius: 8px;
@@ -180,6 +182,7 @@ const Input = styled.input.attrs({ type: "text" })`
   transition: 0.15s;
   border: 1px solid ${Gray2};
   padding: 10px 20px;
+  text-align: right;
   &:active {
     background-color: ${Gray6};
   }
