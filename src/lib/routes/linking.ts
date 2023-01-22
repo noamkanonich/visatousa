@@ -3,36 +3,14 @@ const linking = {
   config: {
     screens: {
       Home: {
-        path: "",
+        path: "home",
         screens: {
-          Services: "",
-          Foodies: {
-            path: "foodies",
-            screens: {
-              FoodiesMain: "",
-              AllOrders: {
-                path: "orders/all-orders",
-                screens: {
-                  AllOrdersMain: "",
-                },
-              },
-              AssignedOrders: {
-                path: "orders/assigned-orders",
-                screens: {
-                  AssignedOrdersMain: "",
-                },
-              },
-            },
-          },
+          HomeMain: "",
         },
-        Auth: {
-          path: "/auth",
-          screens: {
-            Login: {
-              path: "/login",
-            },
-          },
-        },
+      },
+      About: {
+        path: "about",
+        screens: {},
       },
     },
   },

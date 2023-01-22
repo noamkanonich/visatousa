@@ -1,4 +1,8 @@
 {
+  "navbar": {
+    "home": "Home",
+    "about": "About"
+  },
   "home": {
     "title": "VISA TO USA, simple, easy and fast!",
     "sub_title": "Start now, and get your visa application within onyl 24 hours!"

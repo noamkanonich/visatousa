@@ -25,7 +25,7 @@ const transitionName = `box`;
 
 const HomeScreen = () => {
   const [fading, setFading] = useState(false);
-  setInterval(() => setFading(!fading), 1000);
+  // setInterval(() => setFading(!fading), 1000);
   const { t } = useTranslation();
   return (
     <Root>
@@ -41,16 +41,16 @@ const HomeScreen = () => {
         <SubTitle>התחילו עכשיו את תהליך הוצאת הויזה לארה"ב</SubTitle>
         <Spacer direction="vertical" size="xl" />
         <SendEmailContainer>
+          <InputContainer>
+            <Input placeholder="כתובת אימייל" />
+          </InputContainer>
+          <Spacer direction="horizontal" size="l" />
           <Button
             label="שליחה"
             color={Light}
             background={Primary}
             onClick={() => null}
           />
-          <Spacer direction="horizontal" size="l" />
-          <InputContainer>
-            <Input placeholder="כתובת אימייל" />
-          </InputContainer>
         </SendEmailContainer>
       </Section>
       {/* </BackgroundImage> */}

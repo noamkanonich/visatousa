@@ -6,7 +6,7 @@ import fr from "./fr/translation.json";
 import i18n from "i18next";
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
-// import { detectLanguage } from "./detectLanguage";
+import { detectLanguage } from "./detectLanguage";
 
 export const resources = {
   ar: {
@@ -34,7 +34,7 @@ export const resources = {
 const isRtl = () => i18next.dir() === "rtl";
 
 const onLanguageChanged = () => {
-  const appRoot = document.getElementById("app-root");
+  const appRoot = document.getElementById("root");
   appRoot!.dir = isRtl() ? "rtl" : "ltr";
 };
 
@@ -43,8 +43,7 @@ export const initI18n = async ({ language }: { language?: string }) => {
 
   await i18n.use(initReactI18next).init({
     resources,
-    lng: language || "en",
-    // lng: language || detectLanguage() || "en",
+    lng: language || detectLanguage() || "en",
     fallbackLng: "en",
     compatibilityJSON: "v3",
     interpolation: {
